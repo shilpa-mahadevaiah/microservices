@@ -3,11 +3,11 @@ var entities = require("seneca-entity");
 
 seneca.quiet();
 seneca.use(entities);
-seneca.use("seneca-amqp-transport").client({
+/*seneca.use("seneca-amqp-transport").client({
   type: "amqp",
   pin: "component: order",
   url: "amqp://guest:guest@localhost:5672"
-});
+});*/
 seneca.use("mongo-store", {
   uri: 'mongodb://database:27017/cartdb'
 });
