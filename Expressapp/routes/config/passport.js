@@ -8,7 +8,7 @@ module.exports = function(passport) {
 
   passport.use(
     new JwtStrategy(opts, function(jwt_payload, done) {
-      Seneca.client({ host: "127.0.0.1", port: 9777 }).act(
+      Seneca.client({ host: "account-service", port: 9777 }).act(
         {
           component: "account",
           action: "authenticate",
