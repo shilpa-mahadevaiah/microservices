@@ -1,0 +1,27 @@
+version: '2'
+services:
+  server:
+    build: ./Expressapp
+    ports:
+      - "3000:3000"
+  account-service:
+    build: ./Account
+    ports:
+      - "9777:9777"
+    depends_on:
+      - database
+  cart-service:
+    build: ./Cart
+    ports:
+      - "9111:9111"
+    depends_on:
+      - database
+  catalog-service:
+    build: ./Catalog  
+    ports:
+      - "9090:9090"
+  database: # name of the third service
+    image: mongo
+    ports:
+     - "27017:27017" # specify port forewarding  
+     - "27018:27018" # specify port forewarding  
